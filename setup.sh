@@ -10,6 +10,7 @@ brews=(
 	git-extras
 	git-flow
 	git-lfs
+	mackup
 	node
 	php
 	thefuck
@@ -111,5 +112,10 @@ install 'brew cask install' ${fonts[@]}
 prompt "Cleanup"
 brew cleanup
 brew cask cleanup
+
+
+echo "Configuring Git"
+
+git config --global user.name "Jeremiah Ashley"
 
 echo "Done!"
