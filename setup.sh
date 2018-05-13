@@ -61,6 +61,15 @@ fonts=(
 set +e
 set -x
 
+echo "Creating an SSH key for you..."
+ssh-keygen -t rsa
+
+echo "Please add this public key to Github, GitLab, and BitBucket \n"
+echo "https://github.com/account/ssh \n"
+echo "https://gitlab.com/profile/keys \n"
+echo "https://bitbucket.org/account/user/jermashley/ssh-keys/ \n"
+
+
 function prompt {
   read -p "Hit Enter to $1 ..."
 }
@@ -94,17 +103,6 @@ function install {
   done
 }
 
-prompt "Update ruby"
-ruby -v
-brew install gpg
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-curl -sSL https://get.rvm.io | bash -s stable
-ruby_version='2.6.0'
-rvm install ${ruby_version}
-rvm use ${ruby_version} --default
-ruby -v
-sudo gem update --system
-
 prompt "Install packages"
 brew info ${brews[@]}
 install 'brew install' ${brews[@]}
@@ -130,5 +128,8 @@ composer global require "laravel/installer"
 
 echo "Installing Oh My Fish"
 curl -L https://get.oh-my.fish | fish
+
+echo "Switching to the Fish shell"
+chsh -s /usr/local/bin/fish
 
 echo "Done!"
