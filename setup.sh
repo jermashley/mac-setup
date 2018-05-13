@@ -1,4 +1,5 @@
 # With help from (ok, honestly, I have no idea what I'm doing, so, thanks Pathikrit) https://github.com/pathikrit/mac-setup-script/
+# Mac settings with help from Brad Parbs at https://gist.github.com/bradp/bea76b16d3325f5c47d4#file-setup-sh-L56
 
 #!/usr/bin/env bash
 
