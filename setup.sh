@@ -123,7 +123,12 @@ brew cask cleanup
 
 
 echo "Configuring Git"
-
 git config --global user.name "Jeremiah Ashley"
+
+echo "Installing Laravel"
+composer global require "laravel/installer"
+
+echo "Installing Oh My Fish"
+curl -L https://get.oh-my.fish | fish
 
 echo "Done!"
