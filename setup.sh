@@ -128,89 +128,147 @@ echo "Installing Laravel"
 composer global require "laravel/installer"
 
 echo "Updaing some Mac Settings"
-#"Disabling OS X Gate Keeper"
-#"(You'll be able to install any app you want from here on, not just Mac App Store apps)"
+
+# Disabling OS X Gate Keeper
+# (You'll be able to install any app you want from here on, not just Mac App Store apps)
 sudo spctl --master-disable
 sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-#"Expanding the save panel by default"
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-
-#"Saving to disk (not to iCloud) by default"
+# Saving to disk (not to iCloud) by default
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 
-#"Check for software updates daily, not just once per week"
+# Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
-#"Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+# Enabling full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-#"Enabling subpixel font rendering on non-Apple LCDs"
+# Enabling subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
-#"Showing icons for hard drives, servers, and removable media on the desktop"
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-
-#"Showing all filename extensions in Finder by default"
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-#"Disabling the warning when changing a file extension"
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-#"Use column view in all Finder windows by default"
-defaults write com.apple.finder FXPreferredViewStyle Clmv
-
-#"Enabling snap-to-grid for icons on the desktop and in other icon views"
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
-#"Setting Dock to auto-hide and removing the auto-hiding delay"
+# Setting Dock to auto-hide and removing the auto-hiding delay
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0
 
-#"Preventing Time Machine from prompting to use new hard drives as backup volume"
+# Preventing Time Machine from prompting to use new hard drives as backup volume
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-#"Setting screenshots location to ~/Desktop"
-defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+############################################################
+# Safari
+############################################################
 
-#"Setting screenshot format to PNG"
-defaults write com.apple.screencapture type -string "png"
-
-#"Hiding Safari's sidebar in Top Sites"
+# Hiding Safari's sidebar in Top Sites
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false
 
-#"Disabling Safari's thumbnail cache for History and Top Sites"
+# Disabling Safari's thumbnail cache for History and Top Sites
 defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
-#"Enabling Safari's debug menu"
+# Enabling Safari's debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
-#"Making Safari's search banners default to Contains instead of Starts With"
+# Making Safari's search banners default to Contains instead of Starts With
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false
 
-#"Enabling the Develop menu and the Web Inspector in Safari"
+# Enabling the Develop menu and the Web Inspector in Safari
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 
-#"Adding a context menu item for showing the Web Inspector in web views"
+# Adding a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-#"Don't prompt for confirmation before downloading"
+# Don't prompt for confirmation before downloading
 defaults write org.m0k.transmission DownloadAsk -bool false
 
-# Don’t automatically rearrange Spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
+# Enable “Do Not Track”
+defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+############################################################
+# Finder
+############################################################
+
+# Expanding the save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Showing icons for hard drives, servers, and removable media on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+
+# Showing all filename extensions in Finder by default
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show hidden files and folders
+defaults write com.apple.finder AppleShowAllFiles true
+
+# Set Default Finder Location to Home Folder
+defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+
+# Disabling the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Use list view in all Finder windows by default
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Enabling snap-to-grid for icons on the desktop and in other icon views
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 killall Finder
 
-# Adding 7 spacers to dock
+############################################################
+# Spotlight
+############################################################
+
+defaults write com.apple.spotlight orderedItems -array \
+	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
+	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
+	'{"enabled" = 1;"name" = "PDF";}' \
+	'{"enabled" = 1;"name" = "FONTS";}' \
+	'{"enabled" = 1;"name" = "CALCULATOR";}' \
+	'{"enabled" = 1;"name" = "CONTACTS";}' \
+	'{"enabled" = 1;"name" = "CONVERSION";}' \
+	'{"enabled" = 1;"name" = "DEFINITION";}' \
+	'{"enabled" = 1;"name" = "DOCUMENTS";}' \
+	'{"enabled" = 1;"name" = "EVENT_TODO";}' \
+	'{"enabled" = 0;"name" = "MESSAGES";}' \
+	'{"enabled" = 0;"name" = "IMAGES";}' \
+	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
+	'{"enabled" = 0;"name" = "MUSIC";}' \
+	'{"enabled" = 0;"name" = "MOVIES";}' \
+	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+	'{"enabled" = 0;"name" = "SOURCE";}' \
+	'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+	'{"enabled" = 0;"name" = "MENU_OTHER";}' \
+	'{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+	'{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+# Load new settings before rebuilding the index
+killall mds > /dev/null 2>&1
+# Make sure indexing is enabled for the main volume
+sudo mdutil -i on / > /dev/null
+# Rebuild the index from scratch
+sudo mdutil -E / > /dev/null
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+############################################################
+# Dock
+############################################################
+
+# Adding 8 spacers to dock
+defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
@@ -219,6 +277,37 @@ defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-t
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'
 killall Dock
+
+############################################################
+# Miscellaneous
+############################################################
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+# Show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent YES
+killall SystemUIServer
+
+# Set default screenshot save location
+defaults write com.apple.screencapture location -string "$HOME/Pictures/Screenshots"
+
+# Setting screenshot format to PNG
+defaults write com.apple.screencapture type -string "png"
+
+# Don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+# Disable Notification Center and remove the menu bar icon
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+
+############################################################
+# Install Oh My Fish and set as default shell
+############################################################
 
 echo "Installing Oh My Fish"
 curl -L https://get.oh-my.fish | fish
