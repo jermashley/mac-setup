@@ -46,6 +46,14 @@ casks=(
 
 fonts=(
 	font-firacode-nerd-font
+	font-montserrat
+	font-muli
+	font-nunito
+	font-nunito-sans
+	font-open-sans
+	font-source-code-pro
+	font-source-sans-pro
+	font-source-serif-pro
 )
 
 ######################################## End of app list ########################################
