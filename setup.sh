@@ -21,6 +21,7 @@ casks=(
 	1password
 	abstract
 	adobe-creative-cloud
+	airmail-beta
 	authy
 	docker
 	dropbox
