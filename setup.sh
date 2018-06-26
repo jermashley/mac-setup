@@ -303,9 +303,6 @@ defaults write com.apple.screencapture type -string "png"
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
-# Disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
-
 ############################################################
 # Install Oh My Fish and set as default shell
 ############################################################
