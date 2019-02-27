@@ -134,9 +134,6 @@ sudo spctl --master-disable
 sudo defaults write /var/db/SystemPolicy-prefs.plist enabled -string no
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# Saving to disk (not to iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-
 # Check for software updates daily, not just once per week
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
@@ -160,9 +157,6 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
 # Hiding Safari's sidebar in Top Sites
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false
-
-# Disabling Safari's thumbnail cache for History and Top Sites
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2
 
 # Enabling Safari's debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
@@ -230,14 +224,14 @@ defaults write com.apple.spotlight orderedItems -array \
   '{"enabled" = 1;"name" = "APPLICATIONS";}' \
   '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
   '{"enabled" = 1;"name" = "DIRECTORIES";}' \
-  '{"enabled" = 1;"name" = "PDF";}' \
-  '{"enabled" = 1;"name" = "FONTS";}' \
+  '{"enabled" = 0;"name" = "PDF";}' \
+  '{"enabled" = 0;"name" = "FONTS";}' \
   '{"enabled" = 1;"name" = "CALCULATOR";}' \
-  '{"enabled" = 1;"name" = "CONTACTS";}' \
+  '{"enabled" = 0;"name" = "CONTACTS";}' \
   '{"enabled" = 1;"name" = "CONVERSION";}' \
-  '{"enabled" = 1;"name" = "DEFINITION";}' \
-  '{"enabled" = 1;"name" = "DOCUMENTS";}' \
-  '{"enabled" = 1;"name" = "EVENT_TODO";}' \
+  '{"enabled" = 0;"name" = "DEFINITION";}' \
+  '{"enabled" = 0;"name" = "DOCUMENTS";}' \
+  '{"enabled" = 0;"name" = "EVENT_TODO";}' \
   '{"enabled" = 0;"name" = "MESSAGES";}' \
   '{"enabled" = 0;"name" = "IMAGES";}' \
   '{"enabled" = 0;"name" = "BOOKMARKS";}' \
