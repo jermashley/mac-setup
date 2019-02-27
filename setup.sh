@@ -4,58 +4,56 @@
 #!/usr/bin/env bash
 
 brews=(
-	composer
-	bash-completion
-	fish
-	git
-	git-extras
-	git-flow
-	git-lfs
-	mackup
-	node
-	php
-	thefuck
+  composer
+  fish
+  git
+  git-extras
+  git-flow
+  git-lfs
+  node
+  php
+  thefuck
 )
 
 casks=(
-	1password
-	abstract
-	adobe-creative-cloud
-	airmail-beta
-	authy
-	docker
-	dropbox
-	figma
-	firefox-developer-edition
-	gitkraken
-	google-backup-and-sync
-	google-chrome-dev
-	hyper-canary
-	jetbrains-toolbox
-	kap-beta
-	mac2imgur
-	microsoft-remote-desktop-beta
-	now
-	onedrive
-	postman
-	sketch
-	slack-beta
-	spotify
-	teamviewer
-	visual-studio-code-insiders
-	whatsapp
+  1password-beta
+  alfred
+  authy
+  capture-one
+  cyberduck
+  docker
+  dropbox
+  figma
+  firefox-developer-edition
+  gitkraken
+  google-backup-and-sync
+  google-chrome-dev
+  imageoptim
+  insomnia
+  iterm2-nightly
+  kap-beta
+  microsoft-remote-desktop-beta
+  notion
+  onedrive
+  scroll-reverser
+  slack-beta
+  spotify
+  tableplus
+  teamviewer
+  visual-studio-code-insiders
+  whatsapp
 )
 
 fonts=(
-	font-firacode-nerd-font
-	font-montserrat
-	font-muli
-	font-nunito
-	font-nunito-sans
-	font-open-sans
-	font-source-code-pro
-	font-source-sans-pro
-	font-source-serif-pro
+  font-firacode-nerd-font
+  font-montserrat
+  font-muli
+  font-nunito
+  font-nunito-sans
+  font-open-sans
+  font-source-code-pro
+  font-source-sans-pro
+  font-source-serif-pro
 )
 
 ######################################## End of app list ########################################
@@ -229,31 +227,31 @@ killall Finder
 ############################################################
 
 defaults write com.apple.spotlight orderedItems -array \
-	'{"enabled" = 1;"name" = "APPLICATIONS";}' \
-	'{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
-	'{"enabled" = 1;"name" = "DIRECTORIES";}' \
-	'{"enabled" = 1;"name" = "PDF";}' \
-	'{"enabled" = 1;"name" = "FONTS";}' \
-	'{"enabled" = 1;"name" = "CALCULATOR";}' \
-	'{"enabled" = 1;"name" = "CONTACTS";}' \
-	'{"enabled" = 1;"name" = "CONVERSION";}' \
-	'{"enabled" = 1;"name" = "DEFINITION";}' \
-	'{"enabled" = 1;"name" = "DOCUMENTS";}' \
-	'{"enabled" = 1;"name" = "EVENT_TODO";}' \
-	'{"enabled" = 0;"name" = "MESSAGES";}' \
-	'{"enabled" = 0;"name" = "IMAGES";}' \
-	'{"enabled" = 0;"name" = "BOOKMARKS";}' \
-	'{"enabled" = 0;"name" = "MUSIC";}' \
-	'{"enabled" = 0;"name" = "MOVIES";}' \
-	'{"enabled" = 0;"name" = "PRESENTATIONS";}' \
-	'{"enabled" = 0;"name" = "SPREADSHEETS";}' \
-	'{"enabled" = 0;"name" = "SOURCE";}' \
-	'{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
-	'{"enabled" = 0;"name" = "MENU_OTHER";}' \
-	'{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
-	'{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
-	'{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
-	'{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
+  '{"enabled" = 1;"name" = "APPLICATIONS";}' \
+  '{"enabled" = 1;"name" = "SYSTEM_PREFS";}' \
+  '{"enabled" = 1;"name" = "DIRECTORIES";}' \
+  '{"enabled" = 1;"name" = "PDF";}' \
+  '{"enabled" = 1;"name" = "FONTS";}' \
+  '{"enabled" = 1;"name" = "CALCULATOR";}' \
+  '{"enabled" = 1;"name" = "CONTACTS";}' \
+  '{"enabled" = 1;"name" = "CONVERSION";}' \
+  '{"enabled" = 1;"name" = "DEFINITION";}' \
+  '{"enabled" = 1;"name" = "DOCUMENTS";}' \
+  '{"enabled" = 1;"name" = "EVENT_TODO";}' \
+  '{"enabled" = 0;"name" = "MESSAGES";}' \
+  '{"enabled" = 0;"name" = "IMAGES";}' \
+  '{"enabled" = 0;"name" = "BOOKMARKS";}' \
+  '{"enabled" = 0;"name" = "MUSIC";}' \
+  '{"enabled" = 0;"name" = "MOVIES";}' \
+  '{"enabled" = 0;"name" = "PRESENTATIONS";}' \
+  '{"enabled" = 0;"name" = "SPREADSHEETS";}' \
+  '{"enabled" = 0;"name" = "SOURCE";}' \
+  '{"enabled" = 0;"name" = "MENU_DEFINITION";}' \
+  '{"enabled" = 0;"name" = "MENU_OTHER";}' \
+  '{"enabled" = 0;"name" = "MENU_CONVERSION";}' \
+  '{"enabled" = 0;"name" = "MENU_EXPRESSION";}' \
+  '{"enabled" = 0;"name" = "MENU_WEBSEARCH";}' \
+  '{"enabled" = 0;"name" = "MENU_SPOTLIGHT_SUGGESTIONS";}'
 # Load new settings before rebuilding the index
 killall mds > /dev/null 2>&1
 # Make sure indexing is enabled for the main volume
