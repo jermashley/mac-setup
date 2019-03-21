@@ -17,7 +17,6 @@ brews=(
 
 casks=(
   1password-beta
-  alfred
   authy
   capture-one
   cyberduck
@@ -61,13 +60,13 @@ fonts=(
 set +e
 set -x
 
-echo "Creating an SSH key for you..."
-ssh-keygen -t rsa
+# echo "Creating an SSH key for you..."
+# ssh-keygen -t rsa
 
-echo "Please add this public key to Github, GitLab, and BitBucket \n"
-echo "https://github.com/account/ssh \n"
-echo "https://gitlab.com/profile/keys \n"
-echo "https://bitbucket.org/account/user/jermashley/ssh-keys/ \n"
+# echo "Please add this public key to Github, GitLab, and BitBucket \n"
+# echo "https://github.com/account/ssh \n"
+# echo "https://gitlab.com/profile/keys \n"
+# echo "https://bitbucket.org/account/user/jermashley/ssh-keys/ \n"
 
 
 function prompt {
